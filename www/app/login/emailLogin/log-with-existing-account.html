@@ -1,0 +1,60 @@
+<ion-view view-title="Login">
+    <ion-content>
+         <div style="height: 200px">&nbsp;</div>
+         <form class="trakkForm " name="usernameLoginForm" novalidate ng-submit="emailLogin.submitForm(usernameLoginForm)">
+            <div class="pageWrapper">
+                <div class="text-center">
+                    <img class="bigAutoTrakkLogo loginLogo center" src="img/welcome-logo.png" >
+                </div>
+                <div class="viewContent">
+                    <div class="row">
+                        <div class="col text-center makeItCapitalize">
+
+                                Enter the information below from your<br/>
+                                AutoTrakk Online Account
+
+                        </div>
+                    </div>
+                
+                        <div class="row">
+                            <div class="col col-50 col-center">
+                                <label class="inputLabel" for="username">Username<span class="labelDescription makeItCapitalize">Your email address</span></label>
+                            </div>
+                            <div class="col col-50 col-center">
+                                <input required class="formInput" type="email" id="email" name="email"
+                                    ng-model="emailLogin.loginForm.email">
+                                <div class="errorMsgBox" ng-messages="usernameLoginForm.email.$error" role="alert" ng-if="usernameLoginForm.email.$dirty || usernameLoginForm.$submitted">
+                                    <div ng-messages-include="app/form-validation/error-list.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-50">
+                                <label for="pass" class="inputLabel">Password</label>
+                            </div>
+                            <div class="col col-50">
+                                <input required class="formInput" id="pass" type="password" name="pass" ng-model="emailLogin.loginForm.password">
+                                <div class="errorMsgBox" ng-messages="usernameLoginForm.pass.$error" role="alert" ng-if="usernameLoginForm.pass.$dirty || usernameLoginForm.$submitted">
+                                    <div ng-messages-include="app/form-validation/error-list.html"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                
+                </div>
+            </div>
+            <div class="bottomActionWrapper" style="margin-top: 100%">
+                <div class="row actionBox ">
+                    <div class="col col-40  col-offset-10">
+                        <button ui-sref="loginSelect" type="button" class="btn button-block btnCancel">Cancel</button>
+                    </div>
+                    <div class="col col-40 ">
+                        <button type="submit" class="btn button-block  btnSubmit text-center">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

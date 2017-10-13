@@ -1,0 +1,43 @@
+<ion-view view-title="Enter Pin">
+    <ion-content>
+        <div class="text-center">
+            <img class="bigAutoTrakkLogo center" src="img/welcome-logo.png">
+        </div>
+        <div class="viewContent">
+            <div class="row">
+                <div class="col text-center">
+                    ENTER YOUR FOUR DIGIT<br/>
+                    SECURITY PIN
+                </div>
+            </div>
+            <form name="pinLoginForm" id="pinLoginForm" novalidate ng-submit="pinLogin.submitForm(pinLoginForm)">
+                <div class="row trakkForm">
+                    <div class="col col-40 center">
+                        <input  required only-max-length required class="formInput text-center" type="number"
+                               style="-webkit-text-security:disc;"
+                               max="9999" ng-minlength="4" minlength="4" ng-maxlength="4" move-next-on-maxlength maxlength="4" id="pin" name="pin" ng-model="pinLogin.form.pin">
+                       
+                        <div class="errorMsgBox makeItCapitalize" ng-messages="pinLoginForm.pin.$error" role="alert" ng-if="pinLoginForm.pin.$dirty || pinLoginForm.$submitted">
+                            <div ng-message="required">Please enter a value for this field.</div>                            
+                            <div ng-message="minlength">This field is too short</div>                       
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                     <div class="col center text-center fontSizeS">
+                          <span  on-tap="pinLogin.forgotPIN()">Forgot PIN ?</span>                              
+                     </div>
+                </div>
+
+                <div class="row actionBox">
+
+                    <div class="col col-40 center">
+                        <button type="submit"
+                                class="btn button-block btnSubmit text-center">Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

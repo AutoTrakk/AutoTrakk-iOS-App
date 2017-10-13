@@ -1,0 +1,155 @@
+<ion-view view-title="My Profile">
+    <ion-content overflow-scroll="true">
+        <form name="myProfileForm" id="myProfileForm" novalidate ng-submit="myProfile.submitForm(myProfileForm)">
+            <div class="pageWrapper tabContent">
+                <div class="viewContent">
+		    <div class="row">&nbsp;</div>
+                    <div class="row">
+                        <div class="col">
+                            <i class="makeItCapitalize">Touch any item to update</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="trakkForm stripeList">
+                    <div class="row">
+                        <div class="col col-50 strongtext">
+                            Contract #:
+                        </div>
+                        <div class="col col-50">
+                            {{myProfile.data.contract}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-50 strongText">
+                            Name:
+                        </div>
+                        <div class="col col-50">
+                            {{myProfile.data.name}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-50">
+                            <label class="inputLabel" for="address1">Address1:</label>
+                        </div>
+                        <div class="col col-50">
+                            <input required class="formInput" type="text" id="address1" name="address1"
+                                   ng-model="myProfile.form.address1" >
+                            <div class="errorMsgBox" ng-messages="myProfileForm.address1.$error" role="alert" ng-if="myProfileForm.address1.$dirty || myProfileForm.$submitted">
+                                <div ng-messages-include="app/form-validation/error-list.html"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-50">
+                            <label class="inputLabel" for="address2">Address2:</label>
+                        </div>
+                        <div class="col col-50">
+                            <input  class="formInput" type="text" id="address2" name="address2"
+                                   ng-model="myProfile.form.address2" >
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-50">
+                            <label class="inputLabel" for="city">City:</label>
+                        </div>
+                        <div class="col col-50">
+                            <input required class="formInput" type="text" id="city" name="city"
+                                   ng-model="myProfile.form.city" >
+                            <div class="errorMsgBox" ng-messages="myProfileForm.city.$error" role="alert" ng-if="myProfileForm.city.$dirty || myProfileForm.$submitted">
+                                <div ng-messages-include="app/form-validation/error-list.html"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-50">
+                            <label class="inputLabel" for="state">State:</label>
+                        </div>
+                        <div class="col col-50">
+                            <input required class="formInput" type="text" id="state" name="state"
+                                   ng-model="myProfile.form.state">
+                            <div class="errorMsgBox" ng-messages="myProfileForm.state.$error" role="alert" ng-if="myProfileForm.state.$dirty || myProfileForm.$submitted">
+                                <div ng-messages-include="app/form-validation/error-list.html"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-50">
+                            <label class="inputLabel" for="zip">ZIP:</label>
+                        </div>
+                        <div class="col col-50">
+                            <input  required class="formInput" type="tel" pattern="\d*"  maxlength="5" minlength="5" id="zip" name="zip"
+                                   ng-model="myProfile.form.zip" only-max-length move-next-on-maxlength>
+                            <div class="errorMsgBox" ng-messages="myProfileForm.zip.$error" role="alert" ng-if="myProfileForm.zip.$dirty || myProfileForm.$submitted">
+                                <div ng-messages-include="app/form-validation/error-list.html"></div>
+                            </div>
+                            <div class="errorMsgBox ng-hide" ng-show="myProfileForm.zip.$error.minlength || myProfileForm.zip.$error.pattern">Enter Valid ZIP Format!</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-50">
+                            <label class="inputLabel" for="home">Home #:</label>
+                        </div>
+                        <div class="col col-50">
+                            <input phone-format phone-mask required class="formInput" type="tel" id="home" name="home"
+                                   ng-model="myProfile.form.home">
+                            <div class="errorMsgBox" ng-messages="myProfileForm.home.$error" role="alert" ng-if="myProfileForm.home.$dirty || myProfileForm.$submitted">
+                                <div ng-messages-include="app/form-validation/error-list.html"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-50">
+                            <label class="inputLabel" for="mobile">Mobile #:</label>
+                        </div>
+                        <div class="col col-50">
+                            <input phone-format phone-mask  class="formInput" type="tel" id="mobile" name="mobile"
+                                   ng-model="myProfile.form.mobile">
+                            <div class="errorMsgBox" ng-messages="myProfileForm.mobile.$error" role="alert" ng-if="myProfileForm.mobile.$dirty || myProfileForm.$submitted">
+                                <div ng-messages-include="app/form-validation/error-list.html"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-50">
+                            <label class="inputLabel" for="email">Email:</label>
+                        </div>
+                        <div class="col col-50">
+                            <input required class="formInput" type="email" id="email" name="email"
+                                   ng-model="myProfile.form.email">
+                            <div class="errorMsgBox" ng-messages="myProfileForm.email.$error" role="alert" ng-if="myProfileForm.email.$dirty || myProfileForm.$submitted">
+                                <div ng-messages-include="app/form-validation/error-list.html"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="viewContent">
+                    <div class="row" >
+                        <div class="col col-center text-center makeItCapitalize">
+                            In order to change your PIN, we need to log you out for security reasons. Log out now?
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-40 col center text-center col-center">
+                            <button type="button" class="btn button-block btnSubmit" ng-click="myProfile.editPIN()">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottomActionWrapper">
+                <div class="row actionBox ">
+                    <div class="col col-40 col-offset-10">
+                        <button ui-sref="mainMenu" type="button" class="btn button-block btnCancel">Cancel</button>
+                    </div>
+                    <div class="col col-40">
+                        <button type="submit" class="btn button-block btnSubmit">Save and Close</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

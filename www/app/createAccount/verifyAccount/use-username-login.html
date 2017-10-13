@@ -1,0 +1,46 @@
+<ion-view view-title="Create My Mobile Account">
+    <ion-content overflow-scroll="true">
+        <div class="viewContent">
+            <div class="row">
+                <div class="col">
+                    <p class="pageDescription makeItCapitalize">
+                        Enter the information below from your AutoTrakk Online Account
+                    </p>
+                </div>
+            </div>
+
+            <form name="verifyAccountForm" class="trakkForm" ng-submit="verifyAccount.verifyAccount(verifyAccountForm)" novalidate>                
+                <div class="row">
+                    <div class="col col-50">
+                        <label class="inputLabel" for="username">Username</label>
+                    </div>
+                    <div class="col col-50">
+                        <input required class="formInput" type="email" id="email" name="email"
+                               ng-model="verifyAccount.verifyAccountForm.email">
+                        <div class="errorMsgBox" ng-messages="verifyAccountForm.email.$error" role="alert" ng-if="verifyAccountForm.email.$dirty  || verifyAccountForm.$submitted">
+                            <div ng-messages-include="app/form-validation/error-list.html"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-50">
+                        <label for="password" class="inputLabel">Password</label>
+                    </div>
+                    <div class="col col-50">
+                        <input required class="formInput" id="password" type="password" name="pass" ng-model="verifyAccount.verifyAccountForm.password">
+                        <div class="errorMsgBox" ng-messages="verifyAccountForm.pass.$error" role="alert" ng-if="verifyAccountForm.pass.$dirty || verifyAccountForm.$submitted">
+                            <div ng-messages-include="app/form-validation/error-list.html"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row actionBox">
+                    <div class="col col-40 center col-center">
+                        <button type="submit"  class="btn button-block btnSubmit text-center withSmallTopSpace">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,57 @@
+<ion-view view-title="Make a Payment">
+    <ion-content overflow-scroll="true">
+        <div class="viewContent">
+                <div class="row ">
+                    <div class="col col-center col-60 text-left strongText greenText makeItCapitalize">
+                        Payment Amount
+                    </div>
+                </div>
+        </div>
+        <div class="markedRow">
+            <div class="row strongText">
+                <div class="col makeItCapitalize">
+                    Total Payment Today:
+                </div>
+                <div class="col text-right">
+                    $ {{paymentAmount.amount}}
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="markedRow textBigGap">
+            <div class="row strongText">
+                <div class="col howToPayBox makeItCapitalize">
+                    How do you want to pay?
+                </div>
+            </div>
+        </div>
+                <div class="whiteRow buttonLike">
+                    <div class="row" ng-click="paymentAmount.payMethod('creditCard',makeAPaymentForm)">
+                        <div class="col col-center">
+                            <span class=" strongText makeItCapitalize">Credit/Debit Card on File</span>
+                            <i class="icon goToArrow  ion-chevron-right icon-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="whiteRow buttonLike">
+                    <div class="row" ng-click="paymentAmount.payMethod('newCard',makeAPaymentForm)">
+                        <div class="col col-center">
+                            <span class=" strongText makeItCapitalize">New Credit/Debit Card</span>
+                            <i class="icon goToArrow ion-chevron-right icon-right"></i>
+                        </div>
+                    </div>
+                </div>
+        <div class="row actionBox withTopSpaceActionBox">
+            <div class="col col-40 center">
+                <button ui-sref="mainMenu" class="btn button-block btnCancel ">Cancel</button>
+            </div>
+
+        </div>
+
+
+
+
+    </ion-content>
+</ion-view>

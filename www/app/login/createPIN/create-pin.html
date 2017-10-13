@@ -1,0 +1,80 @@
+<ion-view view-title="Create My Mobile Account">
+    <ion-content>
+        <div class="flashSection text-center">
+
+            <div class="flashContent flashInfo makeItCapitalize">Your account is now</br>accessible on this device</div>
+
+        </div>
+        <div class="viewContent">
+            <div class="row">
+                <div class="col">
+                    <div class="coloredTitle makeItCapitalize">
+                        Optional Security Step User Name
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col makeItCapitalize">
+                        You can now enter a 4-digit PIN number for easier access and to prevent others who use this
+                        device from accessing your account information. Your PIN can be created or edited at any time in
+                        your My Profile.
+                </div>
+            </div>
+        </div>
+        <form name="createPINForm" class="trakkForm logPin" novalidate>
+            <div class="row withoutGap">
+                <div class="col col-50 center">
+                    <div class="errorMsgBox text-center ng-hide makeItCapitalize"  role="alert" ng-show="createPIN.samePinError">
+                        PINs have to match!
+                    </div>
+                    <div class="errorMsgBox text-center ng-hide makeItCapitalize"  role="alert" ng-show="createPIN.showPinError">
+                            This field require 4 numbers!
+                    </div>
+                    <input ng-change="createPIN.pinChanged()" required move-next-on-maxlength only-max-length class="formInput text-center" type="number" style="-webkit-text-security:disc;" max="9999" maxlength="4" ng-maxlength="4" minlength="4" ng-minlength="4" id="pin" name="pin" ng-model="createPIN.logPinForm.pin" >
+                    <label for="pin" class="labelBelow text-center"><i>Enter Your PIN</i></label>
+                </div>
+            </div>
+
+            <div class="row withoutGap">
+                <div class=" withoutGap col col-50 center">
+                    <div class="errorMsgBox text-center ng-hide makeItCapitalize"  role="alert" ng-show="createPIN.showPinRepeatError">
+                        This field require 4 numbers!
+                    </div>
+                    <input ng-change="createPIN.pinRepeatChanged()" required move-next-on-maxlength only-max-length class="formInput text-center" minlength="4" ng-minlength="4" type="number" style="-webkit-text-security:disc;"
+                           max="9999" maxlength="4" ng-maxlength="4" id="pinRepeat" name="pinRepeat" ng-model="createPIN.logPinForm.pinRepeat">
+                    <label for="pin" class="labelBelow text-center"><i>Confirm PIN</i></label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center makeItCapitalize">
+                        <i>Enter your PIN in the box above and click</br>“Save PIN”</i>
+                </div>
+            </div>
+            <div class="row actionBox">
+                <div class="col col-40 col-offset-10">
+                    <button type="button" ng-click="createPIN.noPin()" class="btn button-block btnCancel">Cancel</button>
+                </div>
+                <div class="col col-40">
+                    <button type="submit" ng-click="createPIN.savePin(createPINForm)" class="btn button-block btnSubmit text-center">Save
+                        PIN
+                    </button>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col col-75 col-center center text-center ">
+                    <div class="dontShowAgain">
+                        <i class="makeItCapitalize">Do not show this screen again</i>
+                        <div class="checkBoxWrapper">
+                            <input  type="checkbox" value="None" id="squaredFour" name="check" ng-model="createPIN.notShowCreatePin"  />
+                            <label for="squaredFour">
+                                <i class="ion-checkmark checkmark"></i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </ion-content>
+</ion-view>

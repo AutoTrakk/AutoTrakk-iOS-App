@@ -1,0 +1,97 @@
+<ion-view view-title="Make a Payment">
+    <ion-content overflow-scroll="true">
+        <div class="pageWrapper">
+            <div class="viewContent ">
+                <div class="row strongText greenText">
+                    <div class="col col-center col-60 text-left makeItCapitalize">
+                        A Payment Amount Of:
+                        <span class="ng-hide makeItCapitalize" ng-show="makeAPayment.hasDeviceCode == 'Y'"><br/>will release this codes</span>
+                    </div>
+                    <div class="col col-center col-40 text-right">$ {{paymentSummary.totalAmount}}</div>
+                </div>
+            </div>
+            <div class="markedRow">
+                <div class="row strongText">
+                    <div class="col makeItCapitalize">
+                        Payment Summary
+                    </div>
+                </div>
+                <div class="row strongText">
+                    <div class="col col-25 makeItCapitalize">
+                        Due Date
+                    </div>
+                    <div class="col col-50 text-center makeItCapitalize">
+                        Description
+                    </div>
+                    <div class="col col-25 text-right makeItCapitalize">
+                        Amt.
+                    </div>
+                </div>
+            </div>
+            <div ng-repeat="summaryItem in paymentSummary.paymentSummaryList" >
+                <div class="viewContent">
+                    <div class="falseTable">
+                        <div class="row strongText fontSizeS" ng-repeat="item in summaryItem.list">
+                            <div class="col col-25 col-center">
+                                {{summaryItem.date | date}}
+                            </div>
+                            <div class="col col-50 text-center col-center ">
+                                {{item.name}}
+                            </div>
+                            <div class="col text-right col-25 col-center">
+                                {{item.paid}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="whiteRow ng-hide" ng-show="paymentSummary.hasDeviceCode == 'Y'">
+                <div class="row">
+                    <div class="col  strongText makeItCapitalize">
+                        Code
+                    </div>
+                    <div class="col  strongText text-right">
+                        {{summaryItem.code}}
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="markedRow">
+                <div class="row strongText">
+                    <div class="col text-center makeItCapitalize">
+                        Overpayment Allocation
+                    </div>
+                </div>
+            </div>
+            <div class="viewContent">
+                <div class="row withoutGap">
+                    <div class="col withoutGap makeItCapitalize">Payment entered</div>
+                    <div class="col text-right withoutGap">{{paymentSummary.overPaymentInfo.entered}}</div>
+                </div>
+                <div class="row withoutGap">
+                    <div class="col withoutGap makeItCapitalize">Payment Applied</div>
+                    <div class="col text-right withoutGap">{{paymentSummary.overPaymentInfo.applied}}</div>
+                </div>
+                <div class="row withoutGap">
+                    <div class="col withoutGap makeItCapitalize">Overpayment Change</div>
+                    <div class="col text-right withoutGap">{{paymentSummary.overPaymentInfo.toOverpayment}}</div>
+                </div>
+                <div class="row withoutGap">
+                    <div class="col withoutGap makeItCapitalize">Overpayment Balance</div>
+                    <div class="col text-right withoutGap">{{paymentSummary.overPaymentInfo.balance}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomActionWrapper">
+            <div class="row actionBox ">
+                <div class="col col-40 col-offset-10">
+                    <button ui-sref="makeAPayment" type="button" class="btn button-block btnCancel">Change Amount
+                    </button>
+                </div>
+                <div class="col col-40">
+                    <button ui-sref="paymentAmount" type="button" class="btn button-block btnSubmit">Continue</button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

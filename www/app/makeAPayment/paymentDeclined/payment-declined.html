@@ -1,0 +1,42 @@
+<ion-view view-title="Make a Payment">
+    <ion-content overflow-scroll="true">
+        <div class="pageWrapper">
+        <div class="flashSection text-center">
+                    <div class="flashContent flashWarning makeItCapitalize">Your Payment has been declined</div>
+        </div>
+        <div class="viewContent">
+            <div class="row">
+                <div class="col">
+                    <p class="makeItCapitalize">
+                        We're sorry but your payment has been declined using the card you selected.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="makeItCapitalize">
+                        Please check your credit or cash available and try again later or try using another card.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        {{paymentDeclined.errorMsg}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="bottomActionWrapper">
+            <div class="row actionBox ">
+                <div class="col col-40 col-offset-10">
+                    <button ui-sref="mainMenu"  class="btn button-block btnCancel">Cancel</button>
+                </div>
+                <div class="col col-40 ">
+                    <button ui-sref="makeAPayment"  class="btn button-block btnSubmit">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

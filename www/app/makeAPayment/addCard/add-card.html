@@ -1,0 +1,231 @@
+<ion-view view-title="Make a Payment">
+    <ion-content overflow-scroll="true">
+        <form novalidate name="newCardForm" id="newCardForm" ng-submit="addCard.submitForm(newCardForm)">
+            <div class="pageWrapper">
+                <div class="flashSection">
+                    <div class="flashContent ">
+                        <div class="row normalText">
+                            <div class="col center text-center">
+                                <p class="text-center makeItCapitalize">
+                                    <i>Add a new Credit/Debit card</i>
+                                </p>
+                                  </div>
+                        </div>
+                        <div class="row">
+                            <div class="col  col-25">
+                                <div class="center chooseCardBox">
+                                    <div class="radioBoxWrapper ">
+                                        <input ng-change="addCard.checkCardNumber()" required type="radio" ng-model="addCard.form.cardType" value="4" id="visa"
+                                               name="cardType" checked/>
+                                        <label class="withContent" for="visa">
+                                            <span class="radioButtonWrapper">
+                                                <i class=" radioButton"></i>
+                                            </span> 
+                                            <img src="img/cards/visa.png">
+                                        </label>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col ceter col-25">
+                                    <div class="center chooseCardBox">
+                                        <div class="radioBoxWrapper ">
+                                            <input ng-change="addCard.checkCardNumber()" required type="radio" ng-model="addCard.form.cardType" value="3"
+                                                id="mastercard" name="cardType"/>
+                                            <label class="withContent" for="mastercard">
+                                                <span class="radioButtonWrapper">
+                                                    <i class=" radioButton"></i>
+                                                </span>                                            
+                                                <img src="img/cards/mastercard.png">
+                                            </label>
+                                        </div>
+                                        
+                                    </div>
+                            </div>
+                            <div class="col  col-25">
+                                    <div class="center chooseCardBox">
+                                        <div class="radioBoxWrapper ">
+                                            <input ng-change="addCard.checkCardNumber()" required type="radio" ng-model="addCard.form.cardType" value="2"
+                                                id="discover"
+                                                name="cardType"/>
+                                            <label class="withContent" for="discover">
+                                            <span class="radioButtonWrapper">
+                                                    <i class=" radioButton"></i>
+                                                </span> 
+                                                <img src="img/cards/discover.png">
+                                            </label>
+                                        </div>
+                                        
+                                    </div>
+                            </div>
+                            <div class="col  col-25">
+                                    <div class="center chooseCardBox">
+                                        <div class="radioBoxWrapper ">
+                                            <input ng-change="addCard.checkCardNumber()" required type="radio" ng-model="addCard.form.cardType" value="1" id="amex"
+                                                name="cardType"/>
+                                            <label class="withContent" for="amex">
+                                                <span class="radioButtonWrapper">
+                                                    <i class=" radioButton"></i>
+                                                </span> 
+                                                <img src="img/cards/american.png">
+                                            </label>
+                                        </div>
+                                        
+                                    </div>
+                            </div>
+                       
+
+                          </div>
+                    </div>
+                </div>
+                <div class="viewContent">
+                    <div class="trakkForm ">
+                        <div class="row">
+                            <div class="col col-50">
+                                <label class="inputLabel makeItCapitalize" for="nameOnCard">Name on Card:</label>
+                            </div>
+                            <div class="col col-50">
+                                <input required class="formInput" type="text" id="nameOnCard" name="nameOnCard"
+                                       ng-model="addCard.form.nameOnCard" >
+                                <div class="errorMsgBox" ng-messages="newCardForm.nameOnCard.$error" role="alert" ng-if="newCardForm.nameOnCard.$dirty || newCardForm.$submitted">
+                                    <div ng-messages-include="app/form-validation/error-list.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-50">
+                                <label class="inputLabel makeItCapitalize" for="cardNumber">Card No:</label>
+                            </div>
+                            <div class="col col-50">
+                                <input min="0" required class="formInput" ng-change="addCard.checkCardNumber()" type="number"  id="cardNumber" name="cardNumber"
+                                       ng-model="addCard.form.cardNumber">                                                                
+                                <div class="errorMsgBox  ng-hide makeItCapitalize"  role="alert" ng-show="addCard.creditCardCheck==false">
+                                    Please enter a value credit card number.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-50">
+                                <label class="inputLabel makeItCapitalize" for="expDate">Expiration Date:</label>
+                            </div>
+                            <div class="col col-50">
+                                <input required class="formInput" type="month" id="expDate" name="expDate"
+                                       ng-model="addCard.form.expDate">
+                                <div class="errorMsgBox" ng-messages="newCardForm.expDate.$error" role="alert" ng-if="newCardForm.expDate.$dirty || newCardForm.$submitted">
+                                    <div ng-messages-include="app/form-validation/error-list.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-50">
+                                <label class="inputLabel makeItCapitalize" for="cvv">CVV:</label>
+                            </div>
+                            <div class="col col-50">
+                                <input required class="formInput" type="tel" pattern="\d*" inputmode="numeric" minlength="3" maxlength="4"  id="cvv" name="cvv"
+                                       ng-model="addCard.form.cvv" only-max-length>
+                                <div class="errorMsgBox" ng-messages="newCardForm.cvv.$error" role="alert" ng-if="newCardForm.cvv.$dirty || newCardForm.$submitted">
+                                    <div ng-messages-include="app/form-validation/error-list.html"></div>
+                                </div>
+                                <div class="errorMsgBox ng-hide" ng-show="newCardForm.cvv.$error.minlength  || newCardForm.cvv.$error.pattern || createAccountStepOneForm.$submitted">Enter valid CVV format!</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-50">
+                                <label class="inputLabel makeItCapitalize" for="billingAddress">Billing Address:</label>
+                            </div>
+                            <div class="col col-50">
+                                <input required class="formInput" type="text" id="billingAddress" name="billingAddress"
+                                       ng-model="addCard.form.billingAddress">
+                                <div class="errorMsgBox" ng-messages="newCardForm.billingAddress.$error" role="alert" ng-if="newCardForm.billingAddress.$dirty || newCardForm.$submitted">
+                                    <div ng-messages-include="app/form-validation/error-list.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-50">
+                                <label class="inputLabel makeItCapitalize" for="address">Address (con’t):</label>
+                            </div>
+                            <div class="col col-50">
+                                <input  class="formInput" type="text" id="address" name="address"
+                                       ng-model="addCard.form.address">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-50">
+                                <label class="inputLabel makeItCapitalize" for="city">City :</label>
+                            </div>
+                            <div class="col col-50">
+                                <input required class="formInput" type="text" id="city" name="city"
+                                       ng-model="addCard.form.city">
+                                <div class="errorMsgBox" ng-messages="newCardForm.city.$error" role="alert" ng-if="newCardForm.city.$dirty || newCardForm.$submitted">
+                                    <div ng-messages-include="app/form-validation/error-list.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-20">
+                                <label class="inputLabel makeItCapitalize" for="state">State:</label>
+                            </div>
+                            <div class="col">
+                                <input pattern="[A-Za-z]{2}" only-max-length ng-maxlength="2" maxlength="2" ng-minlength="2" minlength="2" required class="formInput" type="text" id="state" name="state"
+                                       ng-model="addCard.form.state">
+                                <div class="errorMsgBox" ng-messages="newCardForm.state.$error" role="alert" ng-if="newCardForm.state.$dirty || newCardForm.$submitted">
+                                    <div ng-messages-include="app/form-validation/error-list.html"></div>
+                                </div>
+                                <div class="errorMsgBox ng-hide" ng-show="newCardForm.state.$error.minlength || newCardForm.state.$error.pattern  ||  createAccountStepOneForm.$submitted">Enter valid state format!</div>
+                            </div>
+                            <div class="col col-20">
+                                <label class="inputLabel makeItCapitalize" for="zip">Zip:</label>
+                            </div>
+                            <div class="col">
+                                <input  required class="formInput" type="tel" pattern="\d*" maxlength="5" minlength="5" id="zip" name="zip"
+                                       ng-model="addCard.form.zip" only-max-length >
+                                <div class="errorMsgBox" ng-messages="newCardForm.zip.$error" role="alert" ng-if="newCardForm.zip.$dirty || newCardForm.$submitted">
+                                    <div ng-messages-include="app/form-validation/error-list.html"></div>
+                                </div>
+                                <div class="errorMsgBox ng-hide" ng-show="newCardForm.zip.$error.minlength  || newCardForm.zip.$error.pattern || createAccountStepOneForm.$submitted">Enter valid ZIP format!</div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-50">
+                                <label class="inputLabel makeItCapitalize" for="phoneNumber">Phone Number:</label>
+                            </div>
+                            <div class="col col-50">
+                                <input  phone-format phone-mask class="formInput" type="tel" id="phoneNumber" name="phoneNumber"
+                                       ng-model="addCard.form.phoneNumber">
+                                <div class="errorMsgBox" ng-messages="newCardForm.phoneNumber.$error" role="alert" ng-if="newCardForm.phoneNumber.$dirty || newCardForm.$submitted">
+                                    <div ng-messages-include="app/form-validation/error-list.html"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="whiteRow buttonLike">
+                    <div class="row" ng-click="addCard.payWithCard(newCardForm,false)">
+                        <div class="col col-center">
+                            <span class="strongText makeItCapitalize">Make Payment with This Card</span>
+                            <i class="icon goToArrow  ion-chevron-right icon-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="whiteRow buttonLike">
+                    <div class="row" ng-click="addCard.payWithCard(newCardForm,true)">
+                        <div class="col col-center">
+                            <span class="strongText makeItCapitalize">Save Card and Make Payment</span>
+                            <i class="icon goToArrow ion-chevron-right icon-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomActionWrapper">
+                <div class="row actionBox ">
+                    <div class="col center col-40 col-offset-10">
+                        <button type="button" ui-sref="makeAPayment" class="btn button-block btnCancel">Cancel</button>
+                    </div>                    
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,70 @@
+<ion-view view-title="Make a Payment">
+    <ion-content overflow-scroll="true">
+        <div class="pageWrapper">
+        <div class="trakkForm paymentOptionForm">
+            <div class="viewContent">
+                <div class="row">
+                    <div class="col">
+                            <i class="fontSizeS">Confirm Payment</i>
+                    </div>
+                </div>
+            </div>
+            <div class="crediCardList stripeList">
+                <div class="row">
+                    <div class="col col-center strongText">
+                        Total Payment Today:
+                    </div>
+                    <div class="col col-center text-right">
+                         $ {{ confirmPayment.totalPayAmount }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-center strongText">
+                        Card Ending In:
+                    </div>
+                    <div ng-show="confirmPayment.cardInfo.cardNo" class="col col-center text-right ng-hide">
+                        {{ confirmPayment.cardInfo.cardNo  }}
+                    </div>
+                    <div ng-show="confirmPayment.cardInfo.cardNumber"  class="col col-center text-right ng-hide">
+                        {{ confirmPayment.cardInfo.cardNumber | limitTo: -4  }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-center strongText">
+                        Expiration Date:
+                    </div>
+                    <div class="col col-center text-right">
+                        {{ confirmPayment.cardInfo.expDate | date: 'MMM yyyy' }}
+                    </div>
+                </div>
+                <div class="row ng-hide" ng-show="confirmPayment.cardInfo.cvv">
+                    <div class="col col-center strongText ">
+                        CCV:
+                    </div>
+                    <div class="col col-center  text-right">
+                         {{ confirmPayment.cardInfo.cvv }}
+                    </div>
+                </div>
+            </div>
+            <div class="highlighteSection highlighteActionBox ">
+                <div class="row" ui-sref="paymentAmount">
+                    <div class="col">
+                        <span class="highlighteMsg strongText"><i class="ion-close icon highlighteActionIcon closeIcon"></i> Use Different Card</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+        <div class="bottomActionWrapper">
+            <div class="row actionBox ">
+                <div class="col col-40  col-offset-10">
+                    <button ui-sref="paymentAmount" type="button" class="btn button-block btnCancel">Cancel</button>
+                </div>
+                <div class="col col-40 ">
+                    <button ng-click="confirmPayment.submitPayment()" type="button" class="btn button-block btnSubmit">Approve</button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

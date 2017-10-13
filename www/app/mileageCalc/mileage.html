@@ -1,0 +1,74 @@
+<ion-view view-title="Mileage Calculator">
+    <ion-content overflow-scroll="true">
+        <div class="pageWrapper">
+        <div class="viewContent">
+            <div class="row">
+                <div class="col">
+                    <i class="makeItCapitalize">Touch any item to update</i>
+                </div>
+            </div>
+            <form class="trakkForm " name="calcForm" novalidate ng-submit="mileage.submitCalc(calcForm)">
+                <div class="row">
+                    <div class="col col-50">
+                        <label class="inputLabel makeItCapitalize" for="starting">Enter starting mileage:</label>
+                    </div>
+                    <div class="col col-50">
+                        <input ng-change="mileage.minRequired()"  required class="formInput" type="number" min="0" id="starting" name="starting"
+                               ng-model="mileage.calc.starting">
+                        <div class="errorMsgBox" ng-messages="calcForm.starting.$error" role="alert" ng-if="calcForm.starting.$dirty || calcForm.$submitted">
+                            <div ng-messages-include="app/form-validation/error-list.html"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-50">
+                        <label class="inputLabel makeItCapitalize" for="ending">Enter ending mileage:</label>
+                    </div>
+                    <div class="col col-50">
+                        <input ng-change="mileage.minRequired()" required  class="formInput" type="number" min="0" id="ending" name="ending"
+                               ng-model="mileage.calc.ending">
+                        <div class="errorMsgBox" ng-messages="calcForm.ending.$error" role="alert" ng-if="calcForm.ending.$dirty || calcForm.$submitted">
+                            <div ng-messages-include="app/form-validation/error-list.html"></div>
+                        </div>
+                        <div ng-show="mileage.minRequiredError" class="errorMsgBox ng-hide makeItCapitalize">
+                            Starting mileage must be smaller
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-60">
+                        <label class="inputLabel makeItCapitalize" for="gasUsed">Enter gallons of gas used:</label>
+                    </div>
+                    <div class="col col-40">
+                        <input required class="formInput" type="number" id="gasUsed" min="1" name="gasUsed"
+                               ng-model="mileage.calc.gasUsed">
+                        <div class="errorMsgBox" ng-messages="calcForm.gasUsed.$error" role="alert" ng-if="calcForm.gasUsed.$dirty || calcForm.$submitted">
+                            <div ng-messages-include="app/form-validation/error-list.html"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row actionBox  ">
+
+                    <div class="col col-40 center">
+                        <button type="submit" class="btn button-block btnSubmit milegeSubmitBtn" type="submit">Calculate</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="flashSection">
+                    <div class="flashContent text-center strongText fontSizeXL makeItCapitalize">
+                        Your mileage is:<br/>
+                        {{ mileage.sum | number:2 }} miles per gallon
+                    </div>
+        </div>
+        </div>
+        <div class="bottomActionWrapper">
+            <div class="row actionBox  ">
+            <div class="col col-40 center">
+                <button ui-sref="mainMenu" class="btn button-block btnCancel ">Exit</button>
+            </div>
+        </div>
+        </div>
+    </ion-content>
+</ion-view>

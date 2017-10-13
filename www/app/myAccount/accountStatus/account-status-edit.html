@@ -1,0 +1,104 @@
+<ion-view view-title="Account Status">
+    <ion-content overflow-scroll="true">
+        <div class="pageWrapper">
+            <!--<div class="flashSection">
+                <div class="flashContent">
+                    <div class="viewContent">
+                        <div class="row">
+                            <div class="col contractNumber normalText">
+                                <i>Contract # {{ accountStatus.data.accountStatus.contract }}</i>
+                            </div>
+                        </div>
+			<div class="row">&nbsp;</div>
+                        <div class="row">
+                            <div class="col">
+
+                                    Your Next Payment is Due:<br/><span class="normalText">{{ accountStatus.data.nextPayment | date:'dd' }}, Month {{ accountStatus.data.nextPayment | date:'MM' }}, {{ accountStatus.data.nextPayment | date:'yyyy' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <div class="stripeList inverseStripedList">
+                <div class="row">
+                    <div class="col col-60 strongText col-center makeItCapitalize">
+                        Original lease contract term length Weeks
+                    </div>
+                    <div class="col col-40 col-center text-right">
+                        {{ accountStatus.data.contractTerm }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-60 strongText col-center makeItCapitalize">
+                        Base weekly payment amount</br>
+                        (does not include additional fees)
+                    </div>
+                    <div class="col col-40 col-center text-right">
+                         {{ accountStatus.data.weeklyRent }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-60 strongText col-center makeItCapitalize">
+                        Residual Value (Purchase option price at end of lease, before fees and taxes)</br>
+                    </div>
+                    <div class="col col-40 col-center text-right">
+                        {{ accountStatus.data.vehicleResidual }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-60 strongText col-center makeItCapitalize">
+                        Total number of payments made to date
+                    </div>
+                    <div class="col col-40 col-center text-right">
+                        {{ accountStatus.data.paymentsMade }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-60 strongText col-center makeItCapitalize">
+                        Remaining payments
+                    </div>
+                    <div class="col col-40 col-center text-right">
+                        {{ accountStatus.data.paymentsRemaining }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-60 strongText col-center makeItCapitalize">
+                        Extension periods granted in your payment schedule
+                    </div>
+                    <div class="col col-40 col-center text-right">
+                        {{ accountStatus.data.extensions }}
+                    </div>
+                </div>
+            </div>
+            <!--<div class="whiteRow strongText">
+                <div class="row">
+                    <div class="col col-center col-60 withoutGap ">
+                        Total Due Is:
+                    </div>
+                    <div class="col col-center col-40 withoutGap">
+                        ${{ accountStatus.data.totalDue }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-center col-60  alertText withoutGap">
+                        Amount to Current
+                    </div>
+                    <div class="col col-center col-40 withoutGap">
+                        ${{ accountStatus.data.amountToCurrent }}
+                    </div>
+                </div>
+            </div>-->
+        </div>
+        <div class="bottomActionWrapper">
+            <div class="row actionBox">
+                        <div class="col col-40 col-offset-10">
+                            <button ui-sref="mainMenu" class="btn button-block btnCancel">Cancel</button>
+                        </div>
+                        <div class="col col-40">
+                            <button ui-sref="makeAPayment" class="btn button-block btnSubmit text-center">Make A Payment
+                            </button>
+                        </div>
+                    </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,67 @@
+<ion-view view-title="Make a Payment">
+    <ion-content overflow-scroll="true">
+         <div class="ng-show" ng-hide="payWithDebit.noCards">
+            <form name="payWithDebitForm" id="payWithDebitForm" novalidate>
+                <div class="pageWrapper">
+                    <div class="viewContent">
+                        <div class="row">
+                            <div class="col">
+                                <p>
+                                    <i class="fontSizeS makeItCapitalize">Select Card to use</i>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="crediCardListTitle strongText ">Credit/Debit Cards:</div>
+                    </div>
+                    <div class="crediCardList stripeList ">
+                        <div  ng-repeat="card in payWithDebit.cardList"  class="row">
+                            <div class="col col-center">
+                                <span class="creditCardLabel"> Card ending {{ card.cardNo}} </span>
+                            </div>
+                            <div class="col col-center">
+                                <div class="radioBoxWrapper savedCardList pull-right">
+                                    <input required ng-model="payWithDebit.selectedCard" type="radio" value="{{ card.seq }}" id="card_{{ card.seq }}" name="cardCheckBox" />
+                                    <label for="card_{{ card.seq }}">
+                                        <span class="radioButtonWrapper">
+                                            <i class=" radioButton"></i>
+                                        </span> 
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="whiteRow ">
+                        <div class="row" ui-sref="addCard">
+                            <div class="col">
+                                <span class="highlighteMsg strongText"><i
+                                        class="ion-plus-circled icon highlighteActionIcon makeItCapitalize"></i> Add New Card(s)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomActionWrapper">
+                    <div class="row actionBox ">
+                        <div class="col col-40 col-offset-10">
+                            <button ui-sref="paymentAmount" class="btn button-block btnCancel">Cancel</button>
+                        </div>
+                        <div class="col col-40 ">
+                            <button ng-click="payWithDebit.confirmPayment(payWithDebitForm)" class="btn button-block btnSubmit">Confirm Payment</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+         </div>
+        <div class="ng-hide" ng-show="payWithDebit.noCards">
+            <div class="flashSection">
+                <div class="flashContent  text-center makeItCapitalize">No stored cards</div>
+            </div>            
+            <div class="bottomActionWrapper">
+                <div class="row actionBox ">
+                    <div class="col col-40 center">
+                        <button ui-sref="makeAPayment" class="btn button-block btnCancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

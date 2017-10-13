@@ -1,0 +1,92 @@
+<ion-view view-title="Bank Information">
+    <ion-content overflow-scroll="true">
+         <div class="ng-show" ng-hide="bankInfo.noCards">
+            <form ng-submit="bankInfo.updateCardList()" id="bankInfoForm" name="bankInfoForm" novalidate>
+            
+                <div class="pageWrapper">
+		    <div class="row">&nbsp;</div>
+                    <div class="row">
+                        <div class="col">
+                            <i class="makeItCapitalize">Touch any item to update</i>
+                        </div>
+                    </div>
+                    <div class="row strongText">
+                        <div class="col">
+                            <div class="errorMsgBox ng-hide" role="alert" ng-show="bankInfo.formError">
+                                <div class="error makeItCapitalize" >
+                                    All date fields are required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stripeList inverseStripedList trakkForm">
+                        <div class="row strongText">
+                            <div class="col col-center col-40">
+                                Credit/Debit Cards:
+                            </div>
+                            <div class="col col-center col-30">
+                                Exp Date:
+                            </div>
+                            <div class="col col-center col-30 warningText text-right">
+                                Delete
+                            </div>
+                        </div>
+                        
+                        <ul>
+                            <li ng-repeat="form in bankInfo.formData">
+                                <div ng-hide="form.softDelete == true" class="row strongText">
+                                    <div class="col col-40">
+                                        Card Ending {{ form.cardNo | limitTo:-4 }}
+                                    </div>
+                                    <div class="col col-50">
+                                        <input ng-change="bankInfo.dateCheck(form.expDate)" required="true" ng-required="true" name="expDate" type="month" ng-model="form.expDate" class="formInput">
+                                    </div>
+                                    <div class="col col-10 warningText col-center text-center ">
+                                        <div class="checkBoxWrapper ">
+                                            <input  type="checkbox" ng-model="form.deleteValue" id="checkbox_{{$index}}" name="check" />
+                                            <label for="checkbox_{{$index}} ">
+                                                <i class="ion-checkmark checkmark "></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="whiteRow ">
+                        <div class="row strongText ">
+                            <div class="col col-center  ">
+                                <div class="highlighteMsg "><i class="selectCardMsg makeItCapitalize">Update or Delete Cards and Save</i></div>
+                            </div>
+                            <!--<div class="col col-center col-50 ">
+                                <div class="highlighteMsg text-right "><i class="ion-minus-circled
+                                            icon highlighteActionIcon closeIcon "></i> Delete Card(s) <i class="icon goToArrow ion-chevron-right icon-right "></i>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomActionWrapper ">
+                    <div class="row actionBox ">
+                        <!--<div class="col col-40 col-offset-10 ">
+                            <button type="button" ng-click="bankInfo.resetDeleteCards() " class="btn button-block btnCancel ">Cancel</button>
+                        </div>-->
+                        <div class="col col-40 col-offset-10">
+                            <button ui-sref="mainMenu" class="btn button-block btnCancel">Cancel</button>
+                        </div>
+                        <div class="col col-40 ">
+                            <button type="submit " class="btn button-block btnSubmit ">Save and Close</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+         </div>        
+        <div class="ng-hide" ng-show="bankInfo.noCards">
+            <div class="flashSection">
+                <div class="flashContent  text-center">No Stored Cards</div>
+            </div>  
+        </div>
+    </ion-content>
+</ion-view>

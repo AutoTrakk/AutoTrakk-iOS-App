@@ -1,0 +1,66 @@
+<ion-view view-title="Create My Mobile Account">
+    <ion-content overflow-scroll="true">
+    <div class="pageWrapper">
+            <div class="viewContent">
+                <div class="row">
+                    <div class="col">
+                        <p class="pageDescription text-center strongText makeItCapitalize">
+                            Step 2 - Verify the <br/>information below
+                        </p>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col col-100">
+                        <p class=" regStepOneTitle strongText makeItCapitalize">Is this your vehicle?</p>
+                    </div>
+                </div>
+                <div class="falseTable">
+                <div class="row">
+                    <div class="col col-40">
+                        <span class="strongText">Year</span>
+                    </div>
+                    <div class="col col-60">
+                        <span class="strongText">{{ createAccountTwo.accountContractInfo.vehicle.year }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-40">
+                        <span class="strongText">Make</span>
+                    </div>
+                    <div class="col col-60">
+                        <span class="strongText">{{ createAccountTwo.accountContractInfo.vehicle.make }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-40">
+                        <span class="strongText">Model</span>
+                    </div>
+                    <div class="col col-60">
+                        <span class="strongText">{{ createAccountTwo.accountContractInfo.vehicle.model }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-40">
+                        <span class="strongText">VIN</span>
+                    </div>
+                    <div class="col col-60">
+                        <span class="strongText">{{ createAccountTwo.accountContractInfo.vehicle.vin }}</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+    </div>
+    <div class="bottomActionWrapper">
+            <div class="row actionBox ">
+                <div class="col col-40 col-offset-10">
+                    <button ui-sref="regStepOne" class="btn button-block btnCancel">No</button>
+                </div>
+                <div class="col col-40">
+                    <button ui-sref="regStepThree"
+                            class="btn button-block btnSubmit text-center">Yes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

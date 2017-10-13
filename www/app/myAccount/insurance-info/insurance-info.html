@@ -1,0 +1,84 @@
+<ion-view view-title="Insurance Information">
+    <ion-content overflow-scroll="true">
+        <form name="insuranceInfoForm" id="insuranceInfoForm" novalidate ng-submit="insuranceInfo.submitForm(insuranceInfoForm)">
+            <div class="pageWrapper">
+                <div class="viewContent trakkForm insuranceInfoForm">
+		    <div class="row">&nbsp;</div>
+                    <div class="row">
+                        <div class="col col-50">
+                            <label class="inputLabel" for="insuranceCo">Insurance Co:</label>
+                        </div>
+                        <div class="col col-50">
+                            <input required class="formInput" type="text" id="insuranceCo" name="insuranceCo"
+                                ng-model="insuranceInfo.form.insuranceCo">
+                            <div class="errorMsgBox" ng-messages="insuranceInfoForm.insuranceCo.$error" role="alert" ng-if="insuranceInfoForm.insuranceCo.$dirty || insuranceInfoForm.$submitted">
+                                <div ng-messages-include="app/form-validation/error-list.html"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-50">
+                            <label class="inputLabel" for="agentPhone">Agent Phone:</label>
+                        </div>
+                        <div class="col col-50">
+                            <input phone-format phone-mask required class="formInput" type="tel" id="agentPhone" name="agentPhone"
+                                ng-model="insuranceInfo.form.agentPhone">
+                            <div class="errorMsgBox" ng-messages="insuranceInfoForm.agentPhone.$error" role="alert" ng-if="insuranceInfoForm.agentPhone.$dirty || insuranceInfoForm.$submitted">
+                                <div ng-messages-include="app/form-validation/error-list.html"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-50">
+                            <label class="inputLabel" for="policyNo">Policy No:</label>
+                        </div>
+                        <div class="col col-50">
+                            <input required class="formInput" type="text" id="policyNo" name="policyNo"
+                                ng-model="insuranceInfo.form.policyNo">
+                            <div class="errorMsgBox" ng-messages="insuranceInfoForm.policyNo.$error" role="alert" ng-if="insuranceInfoForm.policyNo.$dirty || insuranceInfoForm.$submitted">
+                                <div ng-messages-include="app/form-validation/error-list.html"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-50">
+                            <label class="inputLabel" for="expirationDate">Expiration Date:</label>
+                        </div>
+                        <div class="col col-50">
+                            <input required class="formInput" type="date" id="expirationDate" name="expirationDate"
+                                ng-model="insuranceInfo.form.expirationDate">
+                            <div class="errorMsgBox" ng-messages="insuranceInfoForm.expirationDate.$error" role="alert" ng-if="insuranceInfoForm.expirationDate.$dirty || insuranceInfoForm.$submitted">
+                                <div ng-messages-include="app/form-validation/error-list.html"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="whiteRow rowSepartor ">
+                    <div class="row strongText ">
+                        <div class="col col-center  ">
+                            <div class="highlighteMsg "><i class="selectCardMsg makeItCapitalize">Note: Insurance changes will be updated, pending verification by AutoTrakk personnel</i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="whiteRow  ">
+                    <div class="row strongText ">
+                        <div class="col col-center  ">
+                            <div class="highlighteMsg "><i class="selectCardMsg makeItCapitalize">For immediate assistance, please contact us at: <br/>1-888-689-7117 ext. 7012</i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomActionWrapper">
+                <div class="row actionBox">
+                    <div class="col col-40 col-offset-10">
+                        <button ui-sref="mainMenu" type="button" class="btn button-block btnCancel">Cancel</button>
+                    </div>
+                    <div class="col col-40">
+                        <button type="submit" class="btn button-block btnSubmit text-center">Save and Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,48 @@
+<ion-view view-title="Main Menu">
+    <ion-content>
+        <div class="viewContent">
+            <div class="row">
+                <div class="col">
+                    <button ui-sref="myAccountTabs.myProfile" class="mainMenuBtn">
+                        <img class="img-responsive" src="img/my-account.png">
+                    </button>
+                </div>
+                <div class="col">
+                    <button ui-sref="makeAPayment" class="mainMenuBtn">
+                        <img class="img-responsive" src="img/payment.png">
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-show="hasNextFreeOilChange == true"  class="col ng-hide">
+                    <button ui-sref="freeOilChangeOne" class="mainMenuBtn">
+                        <img class="img-responsive" src="img/oil.png">
+                    </button>
+                </div>
+                <div class="col">
+                    <button ui-sref="mileage" class="mainMenuBtn">
+                        <img class="img-responsive" src="img/mileage-calculator.png">
+                    </button>
+                    <!--<button ui-sref="maintenance" class="mainMenuBtn">
+                        <img class="img-responsive" src="img/log.png">
+                    </button>-->
+                </div>
+                 <div class="col col-50 ng-hide"   ng-show="hasNextFreeOilChange == false">
+                    <button ui-sref="accidentReportOne" class="mainMenuBtn">
+                        <img class="img-responsive" src="img/report-accident.png">
+                    </button>
+                </div>
+            </div>
+            <div  class="row ng-hide"  ng-show="hasNextFreeOilChange == true">
+                <div class="col col-50">
+                    <button ui-sref="accidentReportOne" class="mainMenuBtn">
+                        <img class="img-responsive" src="img/report-accident.png">
+                    </button>
+                </div>
+            </div>
+            <div class="smallNote text-center copyRightBottom">
+                Copyright 	&#169; {{mainMenu.year}} AutoTrakk, LLC
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

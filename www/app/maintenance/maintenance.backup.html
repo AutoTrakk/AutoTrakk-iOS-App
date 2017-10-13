@@ -1,0 +1,87 @@
+<!--<ion-view view-title="Maintenance Log">
+    <ion-content>
+        <form name="maintenanceForm" id="maintenanceForm" novalidate ng-submit="maintenance.formSubmit(maintenanceForm)">
+            <div class="pageWrapper">
+                <div class="trakkForm maintenanceForm">
+            <div class="viewContent">
+                <div class="row ">
+                    <div class="col">
+                        <span class="pageDescription strongText">
+                            Enter date and mileage of your last oil change:
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col col-50">
+                        <label class="inputLabel" for="date">Date:</label>
+                        <input required  class="formInput" type="date" id="date" name="date" ng-model="maintenance.form.date" >
+                        <div class="errorMsgBox text-right" ng-messages="maintenanceForm.date.$error" role="alert" ng-if="maintenanceForm.date.$dirty || maintenanceForm.$submitted">
+                            <div ng-messages-include="app/form-validation/error-list.html"></div>
+                        </div>
+                    </div>
+                    <div class="col col-50">
+                        <label class="inputLabel" for="miles">Miles:</label>
+                        <input required class="formInput miles" type="number" min="0" id="miles" name="miles" ng-model="maintenance.form.miles">
+                        <div class="errorMsgBox text-right" ng-messages="maintenanceForm.miles.$error" role="alert" ng-if="maintenanceForm.miles.$dirty || maintenanceForm.$submitted">
+                            <div ng-messages-include="app/form-validation/error-list.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="flashSection">
+                    <div class="viewContent">
+                        <div class="row">
+                            <div class="col strongText ">
+                                    Date your registration expires:
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-50">
+                                <label class="inputLabel" for="registrationExp">Date:</label>
+                                <input class="formInput" type="date" id="registrationExp" name="registrationExp" value="{{maintenance.form.registrationExp}}" disabled ng-model="maintenance.form.registrationExp">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="viewContent">
+                    <div class="row  ">
+                        <div class="col strongText ">
+                            Date your state inspection expires:
+                        </div>
+                    </div>
+                    <div class="row  ">
+                        <div class="col col-50">
+                            <label class="inputLabel" for="inspectionExp">Date:</label>
+                            <input class="formInput" type="date" id="inspectionExp" name="inspectionExp"
+                                   value="{{maintenance.form.inspectionExp}}" disabled ng-model="maintenance.form.inspectionExp">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="smallNote maintenanceNote">
+                                NOTE: This information will be automatically updated each time your vehicle is serviced by any Monro affiliated service center.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            </div>
+            <div class="bottomActionWrapper">
+                <div class="row actionBox">
+                    <div class="col col-40 col-offset-10">
+                        <button ui-sref="mainMenu" class="btn button-block btnCancel">Cancel</button>
+                    </div>
+                    <div class="col col-40">
+                        <button type="submit"  class="btn button-block btnSubmit text-center">Save and Close</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>-->

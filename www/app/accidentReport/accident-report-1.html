@@ -1,0 +1,102 @@
+<ion-view view-title="Accident Report">
+    <ion-content overflow-scroll="true">
+        <form name="accidentReportForm" novalidate ng-submit="accidentReportOne.formSubmit(accidentReportForm)">
+            <div class="pageWrapper">
+                <div class="viewContent">
+                <div class="row">
+                    <div class="col ">
+                        <i class="makeItCapitalize">Touch any item to update</i>
+                    </div>
+                </div>
+
+            <div class="trakkForm ">
+                <div class="row">
+                    <div class="col col-50">
+                        <label class="inputLabel" for="date">Accident Date:</label>
+                    </div>
+                    <div class="col col-50">
+                        <input required class="formInput" type="date" id="date" name="date"
+                               ng-model="accidentReportOne.form.date">
+                        <div class="errorMsgBox" ng-messages="accidentReportForm.date.$error" role="alert" ng-if="accidentReportForm.date.$dirty || accidentReportForm.$submitted">
+                            <div ng-messages-include="app/form-validation/error-list.html"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-50">
+                        <label class="inputLabel" for="claimNumber">Claim Number:</label>
+                    </div>
+                    <div class="col col-50">
+                        <input required class="formInput" type="text"  id="claimNumber" name="claimNumber"
+                               ng-model="accidentReportOne.form.claimNumber">
+                        <div class="errorMsgBox" ng-messages="accidentReportForm.claimNumber.$error" role="alert" ng-if="accidentReportForm.claimNumber.$dirty || accidentReportForm.$submitted">
+                            <div ng-messages-include="app/form-validation/error-list.html"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-50">
+                        <label class="inputLabel" for="insuranceCo">Insurance Co:</label>
+                    </div>
+                    <div class="col col-50">
+                        <input required class="formInput"  type="text"  id="insuranceCo" name="insuranceCo"
+                               ng-model="accidentReportOne.form.insuranceCo">
+                        <div class="errorMsgBox" ng-messages="accidentReportForm.insuranceCo.$error" role="alert" ng-if="accidentReportForm.insuranceCo.$dirty || accidentReportForm.$submitted">
+                            <div ng-messages-include="app/form-validation/error-list.html"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-50">
+                        <label class="inputLabel" for="adjusterName">Adjuster Name:</label>
+                    </div>
+                    <div class="col col-50">
+                        <input required class="formInput" type="text" id="adjusterName" name="adjusterName"
+                               ng-model="accidentReportOne.form.adjusterName">
+                        <div class="errorMsgBox" ng-messages="accidentReportForm.adjusterName.$error" role="alert" ng-if="accidentReportForm.adjusterName.$dirty || accidentReportForm.$submitted">
+                            <div ng-messages-include="app/form-validation/error-list.html"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-50">
+                        <label class="inputLabel" for="adjusterPhone">Adjuster Phone:</label>
+                    </div>
+                    <div class="col col-50">
+                        <input phone-format required phone-mask  class="formInput" type="tel" id="adjusterPhone" name="adjusterPhone"
+                               ng-model="accidentReportOne.form.adjusterPhone">
+                        <div class="errorMsgBox" ng-messages="accidentReportForm.adjusterPhone.$error" role="alert" ng-if="accidentReportForm.adjusterPhone.$dirty || accidentReportForm.$submitted">
+                            <div ng-messages-include="app/form-validation/error-list.html"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-50">
+                        <label class="inputLabel" for="policeReport">Police Report #:</label>
+                    </div>
+                    <div class="col col-50">
+                        <input required class="formInput"  type="text"  id="policeReport" name="policeReport"
+                               ng-model="accidentReportOne.form.policeReport">
+                        <div class="errorMsgBox" ng-messages="accidentReportForm.policeReport.$error" role="alert" ng-if="accidentReportForm.policeReport.$dirty || accidentReportForm.$submitted">
+                            <div ng-messages-include="app/form-validation/error-list.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            <div class="bottomActionWrapper">
+                <div class="row actionBox ">
+                    <div class="col col-40 col-offset-10">
+                        <button ui-sref="mainMenu" class="btn button-block btnCancel">Cancel</button>
+                    </div>
+                    <div class="col col-40">
+                        <button type="submit"
+                                class="btn button-block btnSubmit text-center">Submit Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

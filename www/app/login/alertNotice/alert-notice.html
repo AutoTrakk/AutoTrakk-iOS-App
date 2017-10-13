@@ -1,0 +1,71 @@
+<ion-view view-title="Alert Notice">
+    <ion-content overflow-scroll="true">
+        <div class="pageWrapper">
+            <div class="flashSection text-center">
+                <div class="flashContent">
+                    <div class="row">
+                        <div class="col yellowText text-left normalText makeItCapitalize">
+                            Your payment is always due on Friday!
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col ">
+                            <p id="loginMessageContent" class="fontSizeS text-left normalText makeItCapitalize">Late payments will result in your vehicle starter being disabled, sometime between 6:00 a.m. and noon on Tuesday. Late payments may be subject to a 5% late charge, where applicable by law, as outlined in your lease agreement.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="ng-hide" ng-show="$root.hasNextFreeOilChange == true">
+            <div class="viewContent">
+                <div class="row">
+                    <div class="col yellowText makeItCapitalize">
+                        A FREE OIL CHANGE and vehicle inspection is due on this vehicle by:
+                    </div>
+                </div>
+                <div class="trakkForm">
+                    <div class="row ">
+                        <div class="col col-40 center">
+                            <input type="date" class="formInput text-center" disabled ng-model="alertNotice.nextFreeCahnge">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="whiteRow buttonLike" ui-sref="freeOilChangeOne">
+                <div class="row">
+                    <div class="col col-center">
+                        <span>Free Oil Change Detail Click Here</span>
+                        <i class="icon goToArrow ion-chevron-right icon-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="viewContent">
+                <div class="row">
+                    <div class="col">
+                        <p class="makeItCapitalize">
+                            This service can be performed at the dealer from which you leased your vehicle or at any Monro affiliated service center.
+                        </p>
+                        <div class="makeItCapitalize">If you have any question please contact any AutoTrakk Customer Service.</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="highlighteSection">
+                <div class="row">
+                    <div class="col">
+
+                        <span class="highlighteMsg">Customer Service Department</span> <a ng-href="tel:18886897117" class="phoneNumber pull-right">888-689-7117</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomActionWrapper">
+            <div class="actionBox row">
+                <div class="col col-40 center">
+                    <button ui-sref="mainMenu" class="btn button-block center btnSubmit" type="button">Continue</button>
+                </div>
+
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

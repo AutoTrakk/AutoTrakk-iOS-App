@@ -1,0 +1,66 @@
+<ion-view view-title="Make a Payment">
+    <ion-content overflow-scroll="true">
+        <div class="pageWrapper">
+            <div class="flashSection text-center">
+
+                        <div class="flashContent flashInfo ">
+                            Your Payment Is Confirmed
+                        </div>
+
+            </div>
+            <div class="viewContent ng-hide" ng-show="paymentApproved.hasDeviceCode == 'Y'">
+                <div class="row ">
+                    <div class="col col-50 makeItCapitalize">
+                       Your code sequence is:
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="stripeList ng-hide" ng-show="paymentApproved.hasDeviceCode == 'Y'">                 
+                <div  class="row" ng-repeat="item in paymentApproved.list" >
+                    <div class="col col-center col-75">
+                        {{item.dueDate | date}}
+                    </div>
+                    <div class="col col-center col-25 text-right">
+                        {{item.code}}
+                    </div>
+                </div>                          
+            </div>
+            <div class="whiteRow">
+                <div class="row strongText">
+                    <div class="col col-center col-50 makeItCapitalize">
+                        Next payment is due:
+                    </div>
+                    <div class="col col-center col-50 text-right">
+                        {{ paymentApproved.nextPayment | date }}
+                    </div>
+                </div>
+            </div>
+            <!--<div class="viewContent">
+                <div class="row">
+                    <div class="col col-center col-75">
+                        Remind me about my next payment
+                    </div>
+                    <div class="col col-center col-25">
+                        <div class="checkBoxWrapper">
+                            <input ng-change="paymentApproved.saveRemindAboutPayment()" type="checkbox" ng-model="paymentApproved.remindAboutPayment" id="remindAboutPayment" name="check" checked />
+                            <label for="remindAboutPayment">
+                                <i class="ion-checkmark checkmark"></i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+        <div class="bottomActionWrapper">
+            <div class="row actionBox ">
+                <div class="col col-40">
+                    <button ui-sref="mainMenu"  class="btn button-block btnCancel">Continue</button>
+                </div>
+                <div class="col col-60">                    
+                    <button ui-sref="paymentActivity"  class="btn button-block btnSubmit">View Payment Activity</button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

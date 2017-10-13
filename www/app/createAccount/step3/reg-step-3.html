@@ -1,0 +1,69 @@
+<ion-view view-title="Create My Mobile Account">
+    <ion-content overflow-scroll="true">
+            <div class="pageWrapper">
+                <div class="viewContent">
+                <div class="row">
+                    <div class="col">
+                        <p class="pageDescription text-center strongText">
+                            Step 3 - Email Verification
+                        </p>
+                    </div>
+                </div>
+                <form class="trakkForm" name="createAccountStepThreeForm" id="createAccountStepThreeForm" novalidate ng-submit="createAccountThree.submitRegLastStep(createAccountStepThreeForm)">
+                    <div class="row responsive-lg">
+                        <div class="col">
+                            <label class="inputLabel makeItCapitalize" for="email">
+                                Enter your email address
+                            </label>
+                            <input ng-change="createAccountThree.checkSameEmail()" required class="formInput" type="email" id="email" name="email" ng-model="createAccountThree.regLastStepForm.email">
+                            <div class="errorMsgBox" ng-messages="createAccountStepThreeForm.email.$error" role="alert" ng-if='createAccountStepThreeForm.email.$dirty || createAccountStepThreeForm.$submitted'>
+                                <div ng-messages-include="app/form-validation/error-list.html"></div>
+
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label class="inputLabel makeItCapitalize" for="emailConfirm">
+                                Reenter your email address
+                            </label>
+                            <input ng-change="createAccountThree.checkSameEmail()" required  class="formInput" type="email" id="emailConfirm" name="emailConfirm"
+                                   ng-model="createAccountThree.regLastStepForm.emailConfirm">
+                            <div class="errorMsgBox" ng-messages="createAccountStepThreeForm.emailConfirm.$error" role="alert" ng-if='createAccountStepThreeForm.emailConfirm.$dirty || createAccountStepThreeForm.$submitted'>
+                                <div ng-messages-include="app/form-validation/error-list.html"></div>
+                            </div>
+                            <div class="errorMsgBox ng-hide makeItCapitalize"  role="alert" ng-show="createAccountThree.sameEmailError">
+                                Emails have to match!
+                            </div>
+                        </div>
+                        </div>
+                    <div class="row">
+                        <div class="col-40 col">
+                            <button  type="submit" class="btn btnSubmit  button-block">Submit
+                                Email
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col">
+                        <p class="makeItCapitalize">
+                            Submit then check your email for your new password to log in to your AutoTrakk account. Be sure
+                            to check your spam or junk folder. If you do not receive an email within a short period of time,
+                            please call Customer Service at 888-689-7117.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="bottomActionWrapper">
+                <div class="row actionbox">
+                    <div class="col col-60 ">
+
+                    </div>
+                    <div class="col col-40 ">
+                        <button ui-sref="regStepTwo" class="btn btnCancel  button-block ">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+    </ion-content>
+</ion-view>

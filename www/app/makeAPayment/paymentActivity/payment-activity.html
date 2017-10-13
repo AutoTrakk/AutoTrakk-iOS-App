@@ -1,0 +1,75 @@
+<ion-view view-title="Make a Payment">
+    <ion-content overflow-scroll="true">
+        <div class="pageWrapper">
+            <div class="viewContent">
+                <div class="row">
+                    <div class="col strongText text-center">
+                        Account Activity
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-50">
+                    </div>
+                    <div class="col col-25 text-right">
+                        Amt. Due
+                    </div>
+                    <div class="col 25 text-right">
+                        Amt. Paid
+                    </div>
+                </div>
+            </div>
+            <ion-list class="paymentActivityList">
+                <div ng-repeat="group in paymentActivity.groups" class="listGroup">
+                    <ion-item
+                              ng-click="paymentActivity.toggleGroup(group)"
+                              ng-class="{active: paymentActivity.isGroupShown(group)}">
+                            <div class="row markedRow">
+                                <div class="col col-25 ">
+                                    Due Date
+                                </div>
+                                <div class="col">
+                                    {{ group.date | date }}
+                                    <i class="icon pull-right" ng-class="paymentActivity.isGroupShown(group) ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+                                </div>
+                            </div>
+                    </ion-item>
+                    <ion-item class="item-accordion"
+                              ng-show="paymentActivity.isGroupShown(group)">
+                        <div class="falseTable">
+                            <div class="row" ng-repeat="item in group.itemList">
+                                <div class="col col-50">
+                                    <span class="itemHolder">{{item.name}}</span>
+                                </div>
+                                <div class="col col-25 text-right">
+                                    ${{item.due}}
+                                </div>
+                                <div class="col col-25 text-right">
+                                    ${{item.paid}}
+                                </div>
+                            </div>
+
+                        </div>
+                       
+                        <div class="whiteRow ng-hide" ng-show="paymentActivity.hasDeviceCode == 'Y'">
+                            <div class="row">
+                                <div class="col  strongText">
+                                    Code
+                                </div>
+                                <div class="col  strongText text-right">
+                                    {{ group.code }}
+                                </div>
+                            </div>
+                        </div>
+                    </ion-item>
+                </div>
+            </ion-list>
+        </div>
+        <div class=" actionBox bottomActionWrapper">
+            <div class="row">
+            <div class="col col-40 center">
+                <button ui-sref="mainMenu" class="btn button-block btnCancel">Exit</button>
+            </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

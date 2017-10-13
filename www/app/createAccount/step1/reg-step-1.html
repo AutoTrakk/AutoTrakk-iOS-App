@@ -1,0 +1,81 @@
+<ion-view view-title="Create My Mobile Account">
+    <ion-content overflow-scroll="true">
+        <form role="form" name="createAccountStepOneForm" novalidate ng-submit="createAccountOne.submit(createAccountStepOneForm)">
+            <div class="pageWrapper">
+                <div class="viewContent">
+                    <div class="row">
+                        <div class="col">
+                            <p class="pageDescription makeItCapitalize">
+                                This is a simple 3-step process. You will need access to your email and vehicle registration card to complete this process.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-center strongText regStepOneTitle">Step 1 - Enter Your Information</p>
+                        </div>
+                    </div>
+                    <div class="trakkForm regStepOneFrom">
+                        <div class="row">
+                            <div class="col col-50">
+                                <label class="inputLabel" for="firstName">First Name</label>
+                            </div>
+                            <div class="col col-50">
+                                <input required class="formInput" type="text" id="firstName" name="firstName" ng-model="createAccountOne.regStepOneFrom.firstName">
+                                <div class="errorMsgBox" ng-messages="createAccountStepOneForm.firstName.$error" role="alert" ng-if="createAccountStepOneForm.firstName.$dirty || createAccountStepOneForm.$submitted">
+                                    <div ng-messages-include="app/form-validation/error-list.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-50">
+                                <label for="lastName" class="inputLabel">Last Name</label>
+                            </div>
+                            <div class="col col-50">
+                                <input required class="formInput" type="text" id="lastName" name="lastName" ng-model="createAccountOne.regStepOneFrom.lastName">
+                                <div class="errorMsgBox" ng-messages="createAccountStepOneForm.lastName.$error" role="alert" ng-if="createAccountStepOneForm.lastName.$dirty || createAccountStepOneForm.$submitted">
+                                    <div ng-messages-include="app/form-validation/error-list.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row withoutGap">
+                            <div class="col col-50 withoutGap">
+                                <label for="ssnOne" class="inputLabel">SSN#</label>
+                            </div>
+                            <div class="col withoutGap">
+                                <input required class="formInput" maxlength="3" minlength="3" type="number" min="0" id="ssnOne" name="ssnOne" ng-model="createAccountOne.regStepOneFrom.ssnOne"
+                                    move-next-on-maxlength only-max-length>
+                            </div>
+                            <div class="col withoutGap">
+                                <input required class="formInput" maxlength="2" minlength="2" type="number" min="0" name="ssnTwo" ng-model="createAccountOne.regStepOneFrom.ssnTwo"
+                                    move-next-on-maxlength only-max-length>
+                            </div>
+                            <div class="col col-20 withoutGap">
+                                <input required class="formInput" maxlength="4" minlength="4" type="number" min="0" name="ssnThree" ng-model="createAccountOne.regStepOneFrom.ssnThree"
+                                    only-max-length move-next-on-maxlength>
+                            </div>
+                        </div>
+                        <div class="row withoutGap errorBox">
+                            <div class="col col-50 col-offset-50 withoutGap">
+                                <div class="errorMsgBox makeItCapitalize">
+                                    <span ng-if="createAccountStepOneForm.ssnOne.$error.minlength || createAccountStepOneForm.ssnTwo.$error.minlength || createAccountStepOneForm.ssnThree.$error.minlength">This field is required!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomActionWrapper ">
+                <div class="row actionBox ">
+                    <div class="col col-40 col-offset-10">
+                        <button ui-sref="loginSelect" class="btn button-block btnCancel">Cancel</button>
+                    </div>
+                    <div class="col col-40">
+                        <button type="submit" class="btn button-block btnSubmit text-center">Submit
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

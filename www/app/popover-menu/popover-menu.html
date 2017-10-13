@@ -1,0 +1,114 @@
+<ion-popover-view class="trakkPopOver">
+    <ion-content class="trakkPopOverContent">
+        <ul ng-click="popover.hide()" class="popoverList">
+            <li ng-show="userLoggedCheck" class="popoverItem" ui-sref="mainMenu">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/home.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Home</span>
+            </li>
+            <li ng-show="userLoggedCheck" class="popoverItem" ui-sref="myAccountTabs.myProfile">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/account.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">My Account</span>
+            </li>
+            <li ng-hide="userLoggedCheck" class="popoverItem" ui-sref="loginMaster">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/account.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">My Account</span>
+            </li>
+            <li ng-show="userLoggedCheck" class="popoverItem" ui-sref="makeAPayment">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/make-payment.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Make A Payment</span>
+            </li>
+            <li ng-hide="userLoggedCheck" class="popoverItem" ui-sref="loginMaster">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/make-payment.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Make A Payment</span>
+            </li>
+            <li ng-show="userLoggedCheck && hasNextFreeOilChange == true" class="popoverItem" ui-sref="freeOilChangeOne">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/oil.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Free Oil Change</span>
+            </li>
+            <li ng-hide="userLoggedCheck" class="popoverItem" ui-sref="loginMaster">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/oil.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Free Oil Change</span>
+            </li>
+            <!--<li ng-show="userLoggedCheck" class="popoverItem" ui-sref="maintenance">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/log.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Maintenance Log</span>
+            </li>
+            <li ng-hide="userLoggedCheck" class="popoverItem" ui-sref="loginMaster">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/log.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Maintenance Log</span>
+            </li>-->
+            <li ng-show="userLoggedCheck" class="popoverItem" ui-sref="mileage">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/mileage.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Mileage Calculator</span>
+            </li>
+            <li ng-hide="userLoggedCheck" class="popoverItem" ui-sref="loginMaster">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/mileage.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Mileage Calculator</span>
+            </li>
+            <li ng-show="userLoggedCheck" class="popoverItem" ui-sref="accidentReportOne">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/report.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Report An Accident</span>
+            </li>
+            <li ng-hide="userLoggedCheck" class="popoverItem" ui-sref="loginMaster">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/report.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Report An Accident</span>
+            </li>
+            <li class="popoverItem" ui-sref="privacyPolicy">
+                <div class="popoverIconHolder">
+                <img src="img/menu/privacy.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Privacy Policy</span>
+            </li>
+            <li class="popoverItem" ui-sref="termsAndConditions">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/log.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Terms and Conditions</span>
+            </li>
+            <li class="popoverItem" ui-sref="contact">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/contact.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Contact Us</span>
+            </li>
+            <li class="popoverItem" ui-sref="about">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/about.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">About</span>
+            </li>
+            <li ng-show="userLoggedCheck" class="popoverItem" ng-click="confirmLogOut()">
+                <div class="popoverIconHolder">
+                    <img src="img/menu/logout.png" class="popoverIcon center">
+                </div>
+                <span class="popoverItemText">Log Out</span>
+            </li>
+        </ul>
+    </ion-content>
+</ion-popover-view>

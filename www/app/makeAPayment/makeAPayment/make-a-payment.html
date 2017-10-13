@@ -1,0 +1,95 @@
+<ion-view view-title="Make a Payment">
+    <ion-content overflow-scroll="true">
+        <form name="paymentForm" novalidate ng-submit="makeAPayment.submitForm(paymentForm)">
+            <div class="pageWrapper">
+                <div class="flashSection">
+                    <div class="flashContent">
+                        <div class="viewContent">
+                            <div class="row">
+                                <div class="col  normalText fontSizeS">
+                                    <i class="ng-hide makeItCapitalize" ng-show="makeAPayment.hasDeviceCode == 'Y'">Minimum payment required will release code and includes tickets, service bills
+                                        etc., less any overpayment</i>
+                                        <i class="ng-show makeItCapitalize" ng-hide="makeAPayment.hasDeviceCode == 'Y'">Minimum payment required</i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stripeList strongText">
+                    <div class="row">
+                        <div class="col col-center makeItCapitalize">
+                            Weekly Payment
+                        </div>
+                        <div class="col col-center text-right">
+                            $ {{makeAPayment.paymentInfo.weeklyPayment}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-center makeItCapitalize">
+                            Overpayment Bal
+                        </div>
+                        <div class="col col-center text-right">
+                            $ {{makeAPayment.paymentInfo.overPaymentBal}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-center makeItCapitalize">
+                            Minimum Payment<br/>
+                            <span class="ng-hide" ng-show="makeAPayment.hasDeviceCode == 'Y'" >To Release Code</span>
+                        </div>
+                        <div class="col col-center text-right">
+                            $ {{makeAPayment.paymentInfo.minimumPayment}}
+                        </div>
+                    </div>
+                </div>
+                <div class="whiteRow">
+                    <div class="row">
+                        <div class="col col-center alertText strongText makeItCapitalize">
+                            Amount To Current
+                        </div>
+                        <div class="col col-center text-right">
+                            $ {{makeAPayment.paymentInfo.amountToCurrent}}
+                        </div>
+                    </div>
+                </div>
+                <div class="viewContent">
+                    <div class="row ">
+                        <div class="col col-center strongText makeItCapitalize">
+                            How much would you<br/>like to pay today?
+                        </div>
+                        <div class="col col-center trakkForm col-33">
+                            <!--<input class="formInput text-right" ng-max={{makeAPayment.paymentInfo.maxPayment}} ng-min="{{makeAPayment.paymentInfo.minimumPayment}}" type="number"
+                                   ng-model="makeAPayment.paymentInfo.amount" required name="amount"  step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?/">-->
+                                   <input ng-change="makeAPayment.amountValCheck()" class="formInput text-right" type="text"
+                                   ng-model="makeAPayment.paymentInfo.amount" name="amount"  >
+                            <div class="errorMsgBox ng-hide" ng-show="makeAPayment.amountCheck">{{makeAPayment.amountErrorMsg}}</div>                            
+                        </div>
+                    </div>
+                    
+                    <div class="row "  >
+                        <div class="col center col-40">
+                            <button type="button" ui-sref="paymentActivity"
+                                    class="btn button-block btnSubmit text-center">
+                                    <span class="ng-hide" ng-show="makeAPayment.hasDeviceCode == 'Y'">My Codes</span>
+                                    <span class="ng-hide" ng-show="makeAPayment.hasDeviceCode == 'N'">Payment Activity</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomActionWrapper">
+                <div class="row actionBox">
+                    <div class="col col-40 col-offset-10">
+                        <button ui-sref="mainMenu" type="button" class="btn button-block btnCancel">Cancel</button>
+                    </div>
+                        <div class="col col-40">
+                            <button type="submit"
+                                    class="btn button-block btnSubmit text-center">Continue
+                            </button>
+                        </div>
+                    </div>
+               
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
